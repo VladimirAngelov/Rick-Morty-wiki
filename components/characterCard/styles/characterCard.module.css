@@ -1,0 +1,12 @@
+.character-card {
+  display: inline-block;
+  margin: 2vh 1.5vw;
+  background: #eaeaea;
+  border-radius: 10px;
+}
+.character-card img {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+/*# sourceMappingURL=characterCard.module.css.map */
