@@ -1,18 +1,35 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
-// import fetch from 'isomorphic-unfetch'
-import {GRAPHQL_API, GET_CHARACTER_QUERY} from "../utils/queries";
-import {useEffect, useState} from "react";
-import Characters from "./characters";
-import Navigation from "../components/nav";
+import {GRAPHQL_API} from "../utils/queries";
+import HomePage from "./home";
+import {gql, request} from "graphql-request";
 
-export default function Home() {
+const randomPage = (max) => {
+    return Math.floor(Math.random() * max)
+}
+
+const GET_RANDOM_CHARACTERS_QUERY = gql`{
+    characters(page: ${randomPage(34)}){
+        results {
+            id
+            name
+            status
+            image
+            species
+            location {
+                name
+            }
+        }
+    }
+}`
+
+export const getServerSideProps = async () => {
+    const data = await request(GRAPHQL_API, GET_RANDOM_CHARACTERS_QUERY)
+    return {props: {characters: data.characters.results}}
+}
+
+export default function Home({characters}) {
     return (
         <div>
-            <Navigation/>
-            {/*<Characters/>*/}
-            <h1>hello world</h1>
+            <HomePage characters={characters}/>
         </div>
     )
 }

@@ -5,6 +5,12 @@ export const CharacterCardDiv = styled.div`
   margin: 2vh 1.5vw;
   background: #eaeaea;
   border-radius: 10px;
+  cursor: pointer;
+  
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    transform: scale(1.08);
+  }
 
   img {
     border-top-right-radius: 10px;

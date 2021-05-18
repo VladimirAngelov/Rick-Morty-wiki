@@ -2,5 +2,6 @@ import styled from 'styled-components'
 
 export const EpisodesContainer = styled.div`
   text-align: center;
-  margin-top: 5vh;
+  margin: 5vh 0;
+  padding-bottom: 5vh;
 `
