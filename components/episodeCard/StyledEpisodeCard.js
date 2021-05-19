@@ -3,10 +3,10 @@ import styled from 'styled-components'
 export const EpisodeCardElement = styled.div`
   cursor: pointer;
   //width: 80vw;
-  width: 80vw;
+  width: 86vw;
   height: 7vh;
   background: #eaeaea;
-  margin: 0 10vw 1vh 10vw;
+  margin: 0 7vw 1vh 7vw;
   border-radius: 10px;
   font-size: 1rem;
 
