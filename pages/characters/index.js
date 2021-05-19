@@ -41,7 +41,7 @@ const Characters = ({characters, info}) => {
                 <p className="heading">CHARACTERS</p>
                 {data}
             </CharacterContainer>
-            <div ref={ref}>{`Header inside viewport ${inView}.`}</div>
+            <div ref={ref}></div>
         </div>
     );
 }
