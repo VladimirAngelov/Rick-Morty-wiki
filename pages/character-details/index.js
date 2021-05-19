@@ -25,9 +25,6 @@ export const getServerSideProps = async ({query}) => {
 }
 
 function CharacterDetails({character}) {
-    // const router = useRouter()
-    // console.log(router)
-    console.log(character[0])
     return (
         <div>
             <Navigation/>
