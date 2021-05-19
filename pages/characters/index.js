@@ -4,7 +4,8 @@ import {request} from 'graphql-request'
 import Navigation from "../../components/nav";
 import CharacterCard from "../../components/characterCard";
 import {CharacterContainer} from './StyledCharacterContainer'
-// import {getCharacters} from "../../utils/queries";
+import {useInView} from "react-intersection-observer";
+import {useRouter} from "next/router";
 
 export const getServerSideProps = async () => {
     const data = await request(GRAPHQL_API, GET_CHARACTERS_QUERY, {
@@ -13,31 +14,49 @@ export const getServerSideProps = async () => {
     return {props: {characters: data.characters.results, info: data.characters.info}}
 }
 
-
-
 const Characters = ({characters, info}) => {
     const [charData, setCharData] = useState(characters)
-    const [page, setPage] = useState(info.next)
+    const [page, setPage] = useState(1)
     const lastElement = useRef()
+    const {ref, inView, entry} = useInView({threshold: 0.25})
+    const router = useRouter();
+    const [isLoading, setIsLoading] = useState(true)
 
-    useEffect(() => {
-        const handleIntersection = (entries) => {
-            entries.map((entry) => {
-                if (entry.isIntersecting) {
-                    console.log('visible')
-                } else {
-                    // entry.target.classList.remove('visible')
-                }
-            });
-        }
+    // useEffect(() => {
+    //     setIsLoading(false)
+    // }, [page]);
 
-        const observer = new IntersectionObserver(handleIntersection)
+    const loadMoreData = async (page) => {
+        return await request(GRAPHQL_API, GET_CHARACTERS_QUERY, {page})
+            // .then(data => {
+            //     setPage(page + 1)
+            //     setIsLoading(true)
+            //     console.log(data.characters.info.next)
+            // })
+    }
 
-            observer.observe(lastElement);
+    const refreshData = () => {
+        router.replace(router.asPath);
+    }
+    // console.log(page)
 
-        // react-intersection-observer !!!!
-    }, [lastElement]);
+    if (inView) {
+        // request(GRAPHQL_API, GET_CHARACTERS_QUERY, {"page": page})
+        //     .then(data => {
+        //         // setCharData(prevData => [...prevData, ...data.characters.results])
+        //     })
+        // setPage(prevState => prevState + 1)
+        // setIsLoading(false)
+        loadMoreData(page)
+            .then(data => {
+                setPage(page + 1)
+                setCharData(prevData => [...prevData, ...data.characters.results])
+                // setIsLoading(true)
+                console.log(data.characters.info.next)
+            })
+        console.log(page)
 
+    }
     const data = charData?.map(c => <CharacterCard setPage={setPage} key={c.name + c.id} character={c}/>)
 
     return (
@@ -46,9 +65,7 @@ const Characters = ({characters, info}) => {
             <CharacterContainer>
                 {data}
             </CharacterContainer>
-            <div ref={lastElement}>
-testElement
-            </div>
+            <div ref={ref}>{`Header inside viewport ${inView}.`}</div>
         </div>
     );
 }
