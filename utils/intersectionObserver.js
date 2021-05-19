@@ -23,7 +23,6 @@ export const ImageLazyLoader = ({src, inEpisodeDetails, setPage}) => {
         }
 
         return () => {
-            setPage(prevState => prevState + 1)
             ioRef.unobserve(currentRef)
         };
 

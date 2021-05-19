@@ -38,6 +38,7 @@ const Characters = ({characters, info}) => {
         <div>
             <Navigation/>
             <CharacterContainer>
+                <p className="heading">CHARACTERS</p>
                 {data}
             </CharacterContainer>
             <div ref={ref}>{`Header inside viewport ${inView}.`}</div>

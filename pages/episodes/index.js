@@ -18,8 +18,8 @@ const Episodes = ({episodes}) => {
         <>
             <Navigation/>
             <EpisodesContainer>
+                <p className="heading">EPISODES</p>
                 {episodes?.map(e => <ContentLazyLoader key={e.id} episode={e}/>)}
-                {/*{episodes?.map(e => <EpisodeCard key={e.name} episode={e}/>)}*/}
             </EpisodesContainer>
         </>
     );

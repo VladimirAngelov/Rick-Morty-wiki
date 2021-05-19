@@ -22,30 +22,12 @@ export const EpisodeCardElement = styled.div`
 
   #air-date {
     float: left;
-    margin: -0.5vh 0 0 2vw;
+    margin: -0.7vh 0 0 2vw;
   }
 
   #characters-count {
     float: right;
-    margin: -0.5vh 2vw 0 0;
+    margin: -0.7vh 2vw 0 0;
 
   }
-
-  //.title {
-  //  padding-top: 1vh;
-  //  font-weight: 600;
-  //}
-  //
-  //p .air-date {
-  //  float: left;
-  //  margin: 0 0 0 2vw;
-  //}
 `
-//
-// export const EpisodeElement = styled.p`
-//   padding-top: 1vh;
-//   font-weight: 600;
-// `
-// export const AirDateElement = styled.p`
-//   float: left;
-//   margin: 0 0 0 2vw;

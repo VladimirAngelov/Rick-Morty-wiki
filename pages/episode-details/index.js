@@ -38,7 +38,7 @@ function EpisodeDetails({episode}) {
                 <h2>CHARACTERS</h2>
                 {!load && halfCharacters.map(c => <CharacterCard inEpisodeDetails={true} character={c} />)}
                 {load && episodeData.characters.map(c => <CharacterCard inEpisodeDetails={true} character={c} />)} <br/>
-                <button onClick={() => setLoad(true)}>Load More</button>
+                {!load && <button onClick={() => setLoad(true)}>Load More</button>}
             </EpisodeDetailsElement>
         </>
     );
