@@ -3,7 +3,7 @@ import {useState} from "react";
 import {request} from 'graphql-request'
 import Navigation from "../../components/nav";
 import CharacterCard from "../../components/characterCard";
-import {CharacterContainer} from './StyledCharacterContainer'
+import {CharacterContainer} from '../../components/styled-components/StyledCharacterContainer'
 import {useInView} from "react-intersection-observer";
 
 export const getServerSideProps = async () => {

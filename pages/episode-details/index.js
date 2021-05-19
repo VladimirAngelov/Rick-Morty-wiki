@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import request, {gql} from "graphql-request";
 import {GRAPHQL_API} from "../../utils/queries";
 import Navigation from "../../components/nav";
-import {EpisodeDetailsElement} from "./StyledEpisodeDetails";
+import {EpisodeDetailsElement} from "../../components/styled-components/StyledEpisodeDetails";
 import CharacterCard from "../../components/characterCard";
 import Characters from "../characters";
 

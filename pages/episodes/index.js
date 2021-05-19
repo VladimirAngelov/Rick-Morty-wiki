@@ -3,7 +3,7 @@ import getEpisodes from "../../services/getEpisodes";
 import Navigation from "../../components/nav";
 import {request} from "graphql-request";
 import {GET_EPISODE_QUERY, GRAPHQL_API} from "../../utils/queries";
-import {EpisodesContainer} from "./StyledEpisodeContainer";
+import {EpisodesContainer} from "../../components/styled-components/StyledEpisodeContainer";
 import EpisodeCard from "../../components/episodeCard";
 import {ContentLazyLoader} from "../../utils/intersectionObserver";
 

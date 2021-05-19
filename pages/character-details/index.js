@@ -1,7 +1,7 @@
 import {withRouter, useRouter} from "next/router";
 import request, {gql} from "graphql-request";
 import {GRAPHQL_API} from "../../utils/queries";
-import {CharDetailsContainer} from './StyledCharacterDetails'
+import {CharDetailsContainer} from '../../components/styled-components/StyledCharacterDetails'
 import CharacterCard from "../../components/characterCard";
 import Navigation from "../../components/nav";
 
