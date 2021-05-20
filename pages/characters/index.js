@@ -13,7 +13,7 @@ export const getServerSideProps = async () => {
     return {props: {characters: data.characters.results, info: data.characters.info}}
 }
 
-const Characters = ({characters, info}) => {
+const Characters = ({characters, info, theme}) => {
     const [charData, setCharData] = useState(characters)
     const [page, setPage] = useState(info.next)
     const {ref, inView} = useInView({rootMargin: '300px'})
@@ -21,7 +21,7 @@ const Characters = ({characters, info}) => {
     const loadMoreData = async (page) => {
         return await request(GRAPHQL_API, GET_CHARACTERS_QUERY, {page})
     }
-
+    console.log(theme)
     if (inView) {
         loadMoreData(page)
             .then(data => {

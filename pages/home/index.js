@@ -5,9 +5,9 @@ import CharacterCard from "../../components/characterCard";
 import {CharacterContainer} from "../../components/styled-components/StyledCharacterContainer";
 import {useEffect, useState} from "react";
 
-const HomePage = ({characters}) => {
-    const data = characters?.splice(0, 10).map(c => <CharacterCard key={c.name} character={c}/>)
-
+const HomePage = ({characters, theme}) => {
+    const data = characters?.map(c => <CharacterCard key={c.name} character={c}/>)
+    console.log(theme)
     return (
         <div>
             <Navigation/>

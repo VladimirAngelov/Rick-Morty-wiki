@@ -16,3 +16,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.dark {
+  color: white
+}

@@ -5,7 +5,7 @@ export const EpisodeCardElement = styled.div`
   //width: 80vw;
   width: 86vw;
   height: 7vh;
-  background: #eaeaea;
+  //background: #eaeaea;
   margin: 0 7vw 1vh 7vw;
   border-radius: 10px;
   font-size: 1rem;
