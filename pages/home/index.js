@@ -1,13 +1,9 @@
-import {request} from 'graphql-request'
-import {GET_CHARACTERS_QUERY, GRAPHQL_API} from "../../utils/queries";
 import Navigation from "../../components/nav";
 import CharacterCard from "../../components/characterCard";
 import {CharacterContainer} from "../../components/styled-components/StyledCharacterContainer";
-import {useEffect, useState} from "react";
 
 const HomePage = ({characters, theme}) => {
     const data = characters?.map(c => <CharacterCard key={c.name} character={c}/>)
-    console.log(theme)
     return (
         <div>
             <Navigation/>
