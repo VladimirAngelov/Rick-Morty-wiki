@@ -6,7 +6,7 @@ import {CharacterContainer} from "../../components/styled-components/StyledChara
 import {useEffect, useState} from "react";
 
 const HomePage = ({characters, theme}) => {
-    const data = characters?.splice(0, 10).map(c => <CharacterCard key={c.name} character={c}/>)
+    const data = characters?.map(c => <CharacterCard key={c.name} character={c}/>)
     console.log(theme)
     return (
         <div>

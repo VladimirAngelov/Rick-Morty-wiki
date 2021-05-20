@@ -29,7 +29,7 @@ function MyApp({Component, pageProps}) {
             <GlobalStyle/>
 
             {/*<button style={{ position: 'absolute', marginLeft: '7vw', marginTop: '0.2vw'}} onClick={themeToggle}>THEME</button>*/}
-            <img onClick={themeToggle} style={{ position: 'absolute', marginLeft: '4vw', marginTop: '0.2vw', cursor: 'pointer'}} width={30} height={30} src={theme === 'light' ? '/moon.png' : '/sun.png'} alt=""/>
+            <img onClick={themeToggle} style={{ position: 'absolute', marginLeft: '3vw', marginTop: '-1vw', cursor: 'pointer'}} width={30} height={30} src={theme === 'light' ? '/moon.png' : '/sun.png'} alt=""/>
             <Component {...pageProps} setTheme={setTheme} theme={theme}/>
         </ThemeProvider>
     )

@@ -32,12 +32,12 @@ function EpisodeDetails({episode}) {
     return (
         <>
             <Navigation/>
-            <div style={{marginLeft: '7vw', fontSize: '1.2rem'}}><i>Episode:</i> <strong>{episodeData.name}</strong>
+            <div className="episode-data" style={{marginLeft: '7vw', fontSize: '1.2rem'}}><i>Episode:</i> <strong>{episodeData.name}</strong>
             </div>
-            <div style={{marginLeft: '7vw', fontSize: '1.5rem', marginTop: '2vh'}}><i>Released Date: </i>
+            <div className="episode-data" style={{marginLeft: '7vw', fontSize: '1.5rem', marginTop: '2vh'}}><i>Released Date: </i>
                 <strong>{episodeData.air_date}</strong></div>
             <EpisodeDetailsElement>
-                <h2>CHARACTERS</h2>
+                <h2 className="episode-data" >CHARACTERS</h2>
                 {!load && halfCharacters.map(c => <CharacterCard key={c.name + c.id} inEpisodeDetails={true} character={c}/>)}
                 {load && episodeData.characters.map(c => <CharacterCard key={c.name + c.id} inEpisodeDetails={true} character={c}/>)} <br/>
                 {!load && <button onClick={() => setLoad(true)}>Load More</button>}

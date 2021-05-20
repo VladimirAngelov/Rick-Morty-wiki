@@ -33,6 +33,10 @@ export const GlobalStyle = createGlobalStyle`
     transition: background-color 0.2s linear 0s
   }
   
+  .episode-data {
+    color: ${props => props.theme.fontColor}
+  }
+  
   a {
     color: ${props => props.theme.fontColor};
     transition: color 0.2s linear 0s;
