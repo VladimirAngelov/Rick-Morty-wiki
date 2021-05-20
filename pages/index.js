@@ -2,7 +2,7 @@ import {GRAPHQL_API} from "../utils/queries";
 import HomePage from "./home";
 import {gql, request} from "graphql-request";
 
-import {useState, useEffect} from "react";
+import {useState} from "react";
 
 
 const randomPage = (max) => {
@@ -10,7 +10,7 @@ const randomPage = (max) => {
 }
 
 const GET_RANDOM_CHARACTERS_QUERY = gql`{
-    characters(page: ${randomPage(34)}){
+    characters(page: ${1}){
         results {
             id
             name
@@ -30,15 +30,14 @@ export const getServerSideProps = async () => {
 }
 
 export default function Home({characters, theme}) {
-    console.log(theme)
     const [charData, setCharData] = useState(characters)
 
-    useEffect(() => {
+    if (theme !== 'light' && charData.length === 0) {
         request(GRAPHQL_API, GET_RANDOM_CHARACTERS_QUERY)
             .then(res => {
                 setCharData(res.characters.results)
             })
-    }, [theme]);
+    }
 
     return (
         <div>
