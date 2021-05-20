@@ -45,7 +45,7 @@ export const ContentLazyLoader = ({episode}) => {
                         if (entry.intersectionRatio > 0.5) {
                             ref.current.innerHTML = `
                                 <p id="title">${episode.name}</p>
-                                <div id="air-date">${episode.air_date}</div>
+                                <p id="air-date">${episode.air_date}</p>
                                 <p id="characters-count">Characters: <strong>${episode.characters.length}</strong></p>
                                 `
                         }
@@ -61,7 +61,7 @@ export const ContentLazyLoader = ({episode}) => {
 
     return (
         <Link href={{pathname: '/episode-details', query: {name: episode.name}}}>
-            <EpisodeCardElement ref={ref}/>
+            <EpisodeCardElement className="episode-card" ref={ref}/>
         </Link>
 
     )

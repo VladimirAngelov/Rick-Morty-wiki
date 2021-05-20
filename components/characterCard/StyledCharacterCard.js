@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CharacterCardDiv = styled.div`
   display: inline-block;
   margin: 2vh 1.5vw;
-  background: #eaeaea;
+  background: ${props => props.theme.charBackground};
   border-radius: 10px;
   cursor: pointer;
   

@@ -6,7 +6,7 @@ import Link from "next/link";
 const CharacterCard = ({character, inEpisodeDetails, setPage}) => {
     return (
         <Link href={{pathname: '/character-details', query: {name: character.name}}}>
-            <CharacterCardDiv>
+            <CharacterCardDiv className="character-card" >
                 <ImageLazyLoader setPage={setPage} inEpisodeDetails={inEpisodeDetails} src={character.image}/>
                 <p>{inEpisodeDetails ? character.name : `Name: ${character.name}`}</p>
                 {!inEpisodeDetails && <p>Status: {character.status}</p>}
